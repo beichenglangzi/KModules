@@ -1,11 +1,11 @@
 # Data Storage
 ### Basic Usage
-Suppose you want to store the player's name, highest score, and other information. With the above two modules included in your project, you only have to take three simple steps.
+Suppose you want to store the player's name, best score, and other information in the cloud. With the above two modules included in your project, you only have to take three simple steps.
 1. Write a class that inherits the DataObject class:
 ```
 class PlayerData: DataObject {   
     @objc var name: String = ""
-    @objc var score: Int = 0
+    @objc var bestScore: Int = 0
     @objc var tutorialPlayed: Bool = false
     // other variables...
 }
@@ -14,8 +14,10 @@ class PlayerData: DataObject {
 ```
 var playerDataObject: PlayerData = PlayerData()
 ```
-3. Perform reading and writing whenever you want:
+3. Perform reading and writing after you change the data:
 ```
+playerDataObject.name = "Devil Otter"
+
 // read:
 if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerData {
     // data read successfully, so we override the current data:
@@ -28,4 +30,37 @@ if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerD
 DataManager.write(data: playerDataObject, key: "playerDataObject", cloud: true)
 ```
 And that's it!
-### Explanations
+### Advanced Tips
+In the first step, you must add the @objc keyword before declaring every variable.
+If you have some variables in the class that you do not want to save, you must override the ignoredVariables:
+```
+class PlayerData: DataObject {
+
+    // the necessary variables with the @objc keyword:
+    @objc var name: String = ""
+    @objc var bestScore: Int = 0
+    @objc var tutorialPlayed: Bool = false
+    // other variables...
+
+    // inform the program about the variables you do not need to store:
+    override var ignoredVariables: [String] = ["temp1", "temp2"]
+
+    // therefore, the following variables will not be stored:
+    var temp1: Int = 0
+    var temp2: String = 0
+}
+```
+You can store all the basic Swift data types directly, such as Int, Bool, String, Float, and even arrays like [Int], [[String]], etc. If you want to store objects of another class, for example, you want to save the game's map in a game like Minecraft, you need to let the map class inherit the DataObject class as well. For instance:
+```
+class MapBlockData: DataObject {
+    @objc var type: Int = 0
+    @objc var x: Int = 0
+    @objc var y: Int = 0
+}
+class MapData: DataObject {
+    @objc var blocks: [MapBlockData] = []
+}
+class PlayerData: DataObject {
+    @objc var maps: [MapData] = []
+}
+```
