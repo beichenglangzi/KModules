@@ -1,6 +1,7 @@
 # Data Storage
 ### Basic Usage
-Suppose you want to store the player's name, highest score, and other information. With the above two modules included in your project, you only have to take three simple steps. First, create a simple class, inheriting the DataObject class:
+Suppose you want to store the player's name, highest score, and other information. With the above two modules included in your project, you only have to take three simple steps.
+1. Write a class that inherits the DataObject class:
 ```
 class PlayerData: DataObject {   
     @objc var name: String = ""
@@ -9,11 +10,11 @@ class PlayerData: DataObject {
     // other variables...
 }
 ```
-Then, create an instance of the class:
+2. Create an instance of your class:
 ```
 var playerDataObject: PlayerData = PlayerData()
 ```
-And finally, perform reading and writing:
+3. Perform reading and writing whenever you want:
 ```
 // read:
 if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerData {
@@ -26,3 +27,5 @@ if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerD
 // write:
 DataManager.write(data: playerDataObject, key: "playerDataObject", cloud: true)
 ```
+And that's it!
+### Explanations
