@@ -14,17 +14,18 @@ class PlayerData: DataObject {
 ```
 var playerDataObject: PlayerData = PlayerData()
 ```
-3. Perform reading and writing after you change the data:
+3. Perform reading and writing:
 ```
-playerDataObject.name = "Devil Otter"
-
-// read:
+// read when the game launches:
 if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerData {
     // data read successfully, so we override the current data:
     playerDataObject = data
 }else{
     // the data does not exist, so this is a new player...
 }
+
+// change the data during the game:
+playerDataObject.name = "Devil Otter"
 
 // write:
 DataManager.write(data: playerDataObject, key: "playerDataObject", cloud: true)
@@ -36,7 +37,7 @@ If you have some variables in the class that you do not want to save, you must o
 ```
 class PlayerData: DataObject {
 
-    // the necessary variables with the @objc keyword:
+    // the necessary variables to store:
     @objc var name: String = ""
     @objc var bestScore: Int = 0
     @objc var tutorialPlayed: Bool = false
@@ -64,3 +65,4 @@ class PlayerData: DataObject {
     @objc var maps: [MapData] = []
 }
 ```
+
