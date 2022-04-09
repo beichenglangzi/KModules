@@ -21,7 +21,7 @@ When the player wants to restore the non-consumable item, call the **restore** m
 // restore the only non-consumable of your game:
 manager.restore()
 ```
-Finally, we need to handle transaction success or failure. Initially, I implemented completion handlers for the **purchase** and **restore** functions. However, since the completion handlers will be called on another thread when the transaction completes, it is not thread-safe, and one should avoid implementing the game's logic inside the completion handlers. Therefore, I used the most straightforward approach:
+Finally, we need to handle transaction completions. Initially, I implemented completion handlers for the **purchase** and **restore** functions. However, since the completion handlers will be called on another thread when the transaction completes, it is not thread-safe, and one should avoid implementing the game's logic inside the completion handlers. Therefore, I used the most straightforward approach:
 ```
 if let result = manager.check() {
     if(result == "failed") {
