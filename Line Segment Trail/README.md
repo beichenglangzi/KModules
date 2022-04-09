@@ -39,3 +39,7 @@ Finally, you need to enable it to make the effect show up.
 trail.enabled = true
 ```
 ### Advanced Tips
+- Of course, you can add a texture to the trail effect. Just add it to the material's properties, and it will work just like applying textures to an ordinary SCNGeometry. Note that the left edge of the image is the start of the trail and the right edge is the end. You can test the orientation yourself with some random image first.
+- There is currently no way to extend the length of the trail. It always lasts five frames. You can try to connect two or more trails one after another, but I am not sure whether it will work. The reason is that currently, we can only pass up to 10 uniform attributes to a shader. Since the trail effect is created using a geometry shader, and for every frame, we need two uniform 3D vectors to store the position of the line segments, we can only keep the data of the most recent five frames. 
+- You can specify a **scaleFactor** as a parameter for the trail's render function so that the generated parts of the trail will grow or shrink frame by frame.
+- Disabling the trail effect does not hide it abruptly. Instead, the trail will gradually shrink towards the target node and disappear smoothly for the next few frames.
