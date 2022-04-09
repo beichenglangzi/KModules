@@ -30,7 +30,7 @@ if let result = manager.check() {
     }else if(result == "???") {
         // the result matches one of the Product IDs
         // the transaction is successful
-        // show a message update the game's data
+        // show a message and update the game's data
     }
 }
 ```
