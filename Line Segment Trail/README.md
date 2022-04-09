@@ -13,7 +13,12 @@ trailMaterial.isDoubleSided = true
 ```
 Then, create a trail object:
 ```
-var trail: Trail = Trail(for: node, scene: scene, material: trailMaterial, renderingOrder: 100, smoothen: true, fragmentShader: nil)
+var trail: Trail = Trail(for: node, 
+                         scene: scene, 
+                         material: trailMaterial, 
+                         renderingOrder: 100, 
+                         smoothen: true, 
+                         fragmentShader: nil)
 ```
 The parameters of the constructor are described below:
 - node: the target node to which you want to attach the trail.
