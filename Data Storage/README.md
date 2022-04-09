@@ -65,4 +65,9 @@ class PlayerData: DataObject {
     @objc var maps: [MapData] = []
 }
 ```
-- If you set the cloud parameter to true in the read and write functions, the data will be saved to iCloud's key-value storage, which only has a size of 1MB. When the cloud parameter is set to false, the data will be stored locally using UserDefaults, which does not have a space limit.
+- When reading the data, the first part of the if statement, DataManager.read(key, cloud), tries to retrieve the data from the destination. Then, the "as? type" part tries to convert the retrieved data to the type of your class. Therefore, you must ensure that the class name you put after the "as" keyword is consistent with the instance you create.
+- If you set the cloud parameter to true in the read and write functions, the data will be saved to iCloud's key-value storage, which only has a size of 1MB. When the cloud parameter is set to false, the data will be stored locally using UserDefaults, which does not have a space limit. Note that when saving the data to the cloud, the program will also keep a local copy so that when the device loses internet connection, the data can still be read and modified.
+- If you want to clear all the stored data, you can call the purge function as shown below. However, be careful that if you forget to delete such a line before releasing your game, the result will be catastrophic.
+```
+DataManager.purge()
+```
