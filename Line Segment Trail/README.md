@@ -4,7 +4,7 @@ You will find this module helpful if you want to add a trail effect following a 
 
 [![Demo](https://github.com/KelinLyu/KModules/blob/main/GitHub%20Images/Trail%20Demo.gif)](#)
 
-First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target SCNNode. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a SCNMaterial object ahead of time. For example, you can write the following code to create a blank material:
+First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target **SCNNode**. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a SCNMaterial object ahead of time. For example, you can write the following code to create a blank material:
 ```
 let trailMaterial: SCNMaterial = SCNMaterial()
 trailMaterial.lightingModel = .constant
@@ -29,7 +29,7 @@ The parameters of the constructor are described below:
 - smoothen: whether to use the interpolation algorithms. If set to false, the trail effect will use algorithm #1 shown in the video, which is very fast to compute but has sharp corners. Otherwise, it will use algorithm #3, which performs interpolations, making the effect looks better.
 - fragmentShader: provide a fragment shader in Metal and attach it to the trail effect. I recommend that you write the fragment shader directly into the material instead of putting it as a parameter here.
 
-Then, you need to implement the willRenderScene function, one of the renderer functions of the SCNSceneRendererDelegate protocol, and there, you need to call the render function of the trail object:
+Then, you need to implement the **willRenderScene** function, one of the renderer functions of the **SCNSceneRendererDelegate** protocol, and there, you need to call the render function of the trail object:
 ```
 func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
     trail.render()
