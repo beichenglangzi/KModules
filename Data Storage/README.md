@@ -34,7 +34,7 @@ DataManager.write(data: playerDataObject, key: "playerDataObject", cloud: true)
 ```
 And that's it!
 ### Advanced Tips
-- In the first step, you must add the **@objc** keyword before declaring every variable.
+- In the first step, you must add the **@objc** keyword before declaring every variable you want to store.
 - If you have some variables in the class that you do not want to save, you must override the **ignoredVariables** calculated property:
 ```
 class PlayerData: DataObject {
