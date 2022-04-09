@@ -51,9 +51,9 @@ Here are the descriptions of the parameters:
 - blendFactor: the blend factor of the animation. The animation will influence the rigged model less if the blend factor is smaller than one.
 - fadeInDuration: the fade-in duration when the animation starts.
 - fadeOutDuration: the fade-out duration when the animation stops.
-- events: an array of **SCNAnimationEvent**s. The event blocks will be automatically called at the animation's desinated timestemps, useful for adding foodsteps and other effects.
+- events: an array of **SCNAnimationEvent**s. The event blocks will be automatically called at the animation's designated timestamps, useful for adding footsteps and other effects.
 - remove: if set to true, the animation is removed after it stops playing. Otherwise, it clamps to the last frame, which is convenient for death animations. Note that it only works when the animation is non-continuous.
-- useLoadedAnimation: when set to true, the animation will only be loaded once. The next time you load the animation for a clone of the same character or a different character, the first animation is simply copied, reducing the time for loading the animation. However, this will bind all the copied animations with the original ones, which means their speed and time will always be the same.
+- useLoadedAnimation: when set to true, the animation will only be loaded once. The next time you load the animation for a clone of the same character or a different character, the first animation is simply copied, reducing the time for loading. However, this will also bind the copied animations with the original ones, which means that their speed and time will always be the same.
 
 After that, you can simply play or stop the animation:
 ```
@@ -61,3 +61,18 @@ model.play(animation: "test")
 //model.stop(animation: "test")
 ```
 ### Advanced Tips
+- Make sure that the structure of the bones is the same for the rigged model and the animations. Also, make sure that there are no irrelevant nodes or animations in the animation files. This is because the module might load the irrelevant one before locating the real one.
+- The order of calling the **add** function of the **Model** object matters. The newly added animations overwrite the ones you loaded before. Therefore, in most cases, you should load movement animations after the idle animations and all the non-continuous animations after the continuous ones. The animations that clamp should be added last.
+- If you want an animation to blend on top of other animations, make sure that there are at least two keyframes for the bones. The first keyframe should be at the start, and the other should be at the end of the animation. If you want to achieve animation masking, for example, the character runs while playing the attacking animation, make sure that the attacking animation does not have any keyframes on the bones on the character's legs, hip, and waist. And for all other bones, there should be at least two keyframes as specified above.
+- To avoid loading the same model over and over, you can first load the SCN file to a **SCNNode**, and call another constructor of the **Model** class that copies the node instead of reading the file. However, these models will share the same geometry and materials.
+```
+let node = SCNNode()
+if let scene = SCNScene(named: "\(file).scn") {
+    for n in scene.rootNode.childNodes {
+        node.addChildNode(n)
+    }
+}
+
+let model1: Model = Model(node: node, scale: 1)
+let model2: Model = Model(node: node, scale: 1)
+```
