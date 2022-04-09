@@ -61,8 +61,9 @@ model.play(animation: "test")
 //model.stop(animation: "test")
 ```
 ### Advanced Tips
+- Never forget to call the update function!
 - Make sure that the structure of the bones is the same for the rigged model and the animations. Also, make sure that there are no irrelevant nodes or animations in the animation files. This is because the module might load the irrelevant one before locating the real one.
-- The order of calling the **add** function of the **Model** object matters. The newly added animations overwrite the ones you loaded before. Therefore, in most cases, you should load movement animations after the idle animations and all the non-continuous animations after the continuous ones. The animations that clamp should be added last.
+- The order of calling the **add** function of the **Model** object matters. The newly added animations override the ones you loaded before. Therefore, in most cases, you should load movement animations after the idle animations and all the non-continuous animations after the continuous ones. The animations that clamp should be added last.
 - If you want an animation to blend on top of other animations, make sure that there are at least two keyframes for the bones. The first keyframe should be at the start, and the other should be at the end of the animation. If you want to achieve animation masking, for example, the character runs while playing the attacking animation, make sure that the attacking animation does not have any keyframes on the bones on the character's legs, hip, and waist. And for all other bones, there should be at least two keyframes as specified above.
 - To avoid loading the same model over and over, you can first load the SCN file to a **SCNNode**, and call another constructor of the **Model** class that copies the node instead of reading the file. However, these models will share the same geometry and materials.
 ```
@@ -87,3 +88,9 @@ if let animation = model.get(animation: "test") {
 // stop all the animations playing unless the name of the animation is on the list:
 model.stopAllAnimations(except: ["test"])
 ```
+- When a **Model** object is no longer needed, call its **destroy** method:
+```
+// free up the memory of the model and all of its animations:
+model.destroy()
+```
+- Given an **Animation** object, you can access its **state**, which has four possible cases: **.off**, **.turningOn**, **.on**, and **.turningOff**. You can also access its duration, speed, blend factor, etc. You are not recommended to overwrite the values of these variables.
