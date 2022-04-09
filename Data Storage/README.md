@@ -58,16 +58,19 @@ class MapBlockData: DataObject {
     @objc var x: Int = 0
     @objc var y: Int = 0
 }
+
 class MapData: DataObject {
     @objc var blocks: [MapBlockData] = []
 }
+
 class PlayerData: DataObject {
     @objc var maps: [MapData] = []
 }
+
 // then, reading and writing a PlayerData instance automatically loads everyhing!
 ```
 - Calculated properties cannot be stored. They are basically functions.
-- If you want to store enumerations, you must associate it with a raw value like Int or String and only store its raw value. You can use a calculated property to convert stored raw value to an enumeration case.
+- If you want to store enumerations, you must associate it with a raw value like Int or String and store its raw value. Then, you can use a calculated property to convert stored raw value to an enumeration case when you need that value.
 - When reading the data, the first part of the if statement, **DataManager.read(key, cloud)**, tries to retrieve the data from the destination. Then, the **as? type** part tries to convert the retrieved data to the type of your class. Therefore, you must ensure that the class name you put after the **as** keyword is consistent with the instance you create.
 - Needless to say, you must also ensure that the **key** parameters are consistent when calling the read and write functions for the same data.
 - If you set the **cloud** parameter to true in the read and write functions, the data will be saved to iCloud's key-value storage, which only has a size of 1MB. When the **cloud** parameter is set to false, the data will be stored locally using UserDefaults, which does not have a space limit. Therefore, it is better to save extensive data locally and only keep the most important ones on the cloud. Note that when saving the data to the cloud, the program will also keep a local copy so that when the device loses internet connection, the data can still be read and modified.
