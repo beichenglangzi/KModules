@@ -5,5 +5,6 @@ I have been making iOS games with Swift, SceneKit, and SpriteKit since 2015 when
 No installation is required. Directly drag the swift files you want to use into your Xcode project, and you are good to go!
 # Catalog
 1. [Data Storage](https://github.com/KelinLyu/KModules/tree/main/Data%20Storage) - Create simple data structures for local and iCloud data storage.
+2. [Line Segment Trail](https://github.com/KelinLyu/KModules/tree/main/Line%20Segment%20Trail) - Create trails for moving objects like rockets and swords, with or without interpolation.
 # About & License
 Developed by Kelin.Lyu. Licensed under the MIT license.
