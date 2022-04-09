@@ -85,4 +85,11 @@ class IAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
             }
         }
     }
+    func check()->(String?) {
+        if let value = self.result {
+            self.result = nil
+            return(value)
+        }
+        return(nil)
+    }
 }
