@@ -1,7 +1,7 @@
 # Data Storage
 ### Basic Usage
 Suppose you want to store the player's name, best score, and other information in the cloud. With the above two modules included in your project, you only have to take three simple steps.
-1. Write a class that inherits the DataObject class with all the data variables you need:
+1. Write a class that inherits the **DataObject** class with all the data variables you need:
 ```
 class PlayerData: DataObject {   
     @objc var name: String = ""
@@ -53,7 +53,7 @@ class PlayerData: DataObject {
     var temp2: String = 0
 }
 ```
-- You can store most the basic Swift data types directly, such as **Int**, **Bool**, **String**, **Float**, and even arrays like **[Int]**, **[[String]]**, etc. If you want to store objects of another classc, for example, you want to save a world map in a game like Minecraft, you need to let the map class and other classes inherit the DataObject class as well. For instance:
+- You can store most the basic Swift data types directly, such as **Int**, **Bool**, **String**, **Float**, and even arrays like **[Int]**, **[[String]]**, etc. If you want to store objects of another classc, for example, you want to save a world map in a game like Minecraft, you need to let the map class and other classes inherit the **DataObject** class as well. For instance:
 ```
 class MapBlockData: DataObject {
     @objc var type: Int = 0
