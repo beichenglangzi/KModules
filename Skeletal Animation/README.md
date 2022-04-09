@@ -76,3 +76,14 @@ if let scene = SCNScene(named: "art.scnassets/???.scn") {
 let model1: Model = Model(node: node, scale: 1)
 let model2: Model = Model(node: node, scale: 1)
 ```
+- For the **play** and **stop** functions of the **Model** class, you can specify a new fade-in or fade-out duration, speed, and blend factor using the optional parameters.
+- There are other helper methods in the **Model** class:
+```
+// get the animation with a given name:
+if let animation = model.get(animation: "test") {
+    // access the animation's variables...
+}
+
+// stop all the animations playing unless the name of the animation is on the list:
+model.stopAllAnimations(except: ["test"])
+```
