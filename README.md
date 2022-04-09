@@ -7,5 +7,6 @@ No installation is required. Directly drag the swift files you want to use into 
 1. [Data Storage](https://github.com/KelinLyu/KModules/tree/main/Data%20Storage) - Create simple data structures for local and iCloud data storage.
 2. [Line Segment Trail](https://github.com/KelinLyu/KModules/tree/main/Line%20Segment%20Trail) - Create trails for moving objects like rockets and swords, with or without interpolations.
 3. [Skeletal Animation](https://github.com/KelinLyu/KModules/tree/main/Skeletal%20Animation) - Load and play skeletal animations with easy control and blending.
+4. [IAP Manager](https://github.com/KelinLyu/KModules/tree/main/IAP%20Manager) - A simple module that helps you handle in-app purchases.
 # About & License
 Developed by Kelin.Lyu. Licensed under the MIT license.
