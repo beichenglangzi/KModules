@@ -5,7 +5,7 @@ var manager: IAPManager!
 ```
 And when the game is loading, access the list of products from the App Store and construct the **IAPManager** object:
 ```
-// replace the ??? with the Product IDs of the in-app purchases:
+// replace the ??? with the Product IDs of the in-app purchases you need:
 manager = IAPManager(products: [
     "???",
     "???"
