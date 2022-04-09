@@ -1,10 +1,10 @@
 # Line Segment Trail
 ### Basic Usage
-You will find this module helpful if you want to add a trail effect following a game object for your SceneKit game. The short video below demonstrates what effect this module creates. To get started, drag the two swift files into your project. Note that if you have already added the SCNVector3.swift file, you can skip that one. If you are trying this module for the first time, you are recommended to create a new project, add a SCNCube, and apply some movement animations to keep it flying around.
+You will find this module helpful if you want to add a trail effect following a game object for your SceneKit game. The short video below demonstrates what effect this module creates. To get started, drag the two swift files into your project. Note that if you have already added the SCNVector3.swift file, you can skip that one. If you are trying this module for the first time, you are recommended to create a new project, add a simple cube, and apply some movement animations to keep it flying around.
 
 [![Demo](https://github.com/KelinLyu/KModules/blob/main/GitHub%20Images/Trail%20Demo.gif)](#)
 
-First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target **SCNNode**. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a SCNMaterial object ahead of time. For example, you can write the following code to create a blank material:
+First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target **SCNNode**. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a **SCNMaterial** object ahead of time. For example, you can write the following code to create a blank material:
 ```
 let trailMaterial: SCNMaterial = SCNMaterial()
 trailMaterial.lightingModel = .constant
@@ -23,7 +23,7 @@ var trail: Trail = Trail(for: node,
 ```
 The parameters of the constructor are described below:
 - node: the target node to which you want to attach the trail.
-- scene: the current SCNScene object.
+- scene: the current **SCNScene** object.
 - material: the material you prepared for the trail effect.
 - renderingOrder: the rendering order. Since the trail effects are semi-transparent in most cases, you should make the trail's render order higher than other opaque nodes.
 - smoothen: whether to use the interpolation algorithms. If set to false, the trail effect will use algorithm #1 shown in the video, which is very fast to compute but has sharp corners. Otherwise, it will use algorithm #3, which performs interpolations, making the effect looks better.
