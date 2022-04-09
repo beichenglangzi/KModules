@@ -21,11 +21,13 @@ if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerD
     // data read successfully, so we override the current data:
     playerDataObject = data
 }else{
-    // the data does not exist, so this is a new player...
+    // the data does not exist, so this is a new player.
+    // the playerDataObject will remain unchanged.
 }
 
 // change the data during the game:
 playerDataObject.name = "Devil Otter"
+playerDataObject.bestScore = -9999
 
 // write to save the changes:
 DataManager.write(data: playerDataObject, key: "playerDataObject", cloud: true)
