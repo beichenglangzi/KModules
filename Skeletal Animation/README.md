@@ -66,8 +66,8 @@ model.play(animation: "test")
 - If you want an animation to blend on top of other animations, make sure that there are at least two keyframes for the bones. The first keyframe should be at the start, and the other should be at the end of the animation. If you want to achieve animation masking, for example, the character runs while playing the attacking animation, make sure that the attacking animation does not have any keyframes on the bones on the character's legs, hip, and waist. And for all other bones, there should be at least two keyframes as specified above.
 - To avoid loading the same model over and over, you can first load the SCN file to a **SCNNode**, and call another constructor of the **Model** class that copies the node instead of reading the file. However, these models will share the same geometry and materials.
 ```
-let node = SCNNode()
-if let scene = SCNScene(named: "\(file).scn") {
+let node: SCNNode = SCNNode()
+if let scene = SCNScene(named: "art.scnassets/???.scn") {
     for n in scene.rootNode.childNodes {
         node.addChildNode(n)
     }
