@@ -34,7 +34,7 @@ func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atT
     trail.render()
 }
 ```
-Finally, you need to enable it to make the effect show up.
+Finally, you need to enable the trail to make the effect show up.
 ```
 trail.enabled = true
 ```
