@@ -1,5 +1,5 @@
 # IAP Manager
-This simple module helps you handle in-app purchases and restorations. If your game only has a few consumable in-app purchases and **one** restorable item, then your game is capable of using this module. It does not handle subscriptions. Before you get started, you need to create one or more consumable or non-consumable in-app purchases on App Store Connect. There are already many online tutorials on this topic, so I will skip this part. After that, in your game's Xcode project, include the module file. Then, declare a global variable of type **IAPManager**:
+This simple module helps you handle in-app purchases and restorations. If your game only has a few consumable in-app purchases and **one** restorable item (non-consumable), then your game is capable of using this module. It does not handle subscriptions. Before you get started, you need to create one or more consumable or non-consumable in-app purchases on App Store Connect. There are already many online tutorials on this topic, so I will skip this part. After that, in your game's Xcode project, include the module file. Then, declare a global variable of type **IAPManager**:
 ```
 var manager: IAPManager!
 ```
