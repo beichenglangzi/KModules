@@ -1,5 +1,5 @@
 # Skeletal Animation
-### Design
+### Introduction
 This is one of the most complex but helpful modules I have developed. Before I created this module, I used the **SCNAnimationPlayer** for skeletal animations, which works, but it is hard to control the animations, and the transitions do not look very nice. Therefore, I decided to design my own modules.
 
 The basic idea is to have two classes named **Model** and **Animation**. The **Model** class inherits **SCNNode** and is responsible for loading a rigged model and controlling all the **Animation** objects attached to it. It is always a good idea to isolate the animations. For example, when making characters, I always add the **Model** node as a child node to a control node. The **Model** node only handles animations, while the control node handles movements, physics, and other logic. 
