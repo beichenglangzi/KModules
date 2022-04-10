@@ -93,4 +93,4 @@ model.stopAllAnimations(except: ["test"])
 // free up the memory of the model and all of its animations:
 model.destroy()
 ```
-- Given an **Animation** object, you can access its **state**, which has four possible cases: **.off**, **.turningOn**, **.on**, and **.turningOff**. You can also access its duration, speed, blend factor, etc. You are not recommended to overwrite the values of these variables.
+- Given an **Animation** object, you can access its **state**, which has four possible cases: **.off**, **.turningOn**, **.on**, and **.turningOff**. The **.turningOn** and **.turningOff** states indicate that the animation is currently fading in or out. You can also access its duration, speed, blend factor, etc. You are not recommended to overwrite the values of these variables.
