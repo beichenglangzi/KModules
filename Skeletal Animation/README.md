@@ -29,7 +29,7 @@ model?.update(at: time)
 ```
 Now, run the project. You should see the static model somewhere on the screen. If the model is too large or small, adjust the **scale** parameter when constructing the **Model** object.
 
-Next, let's load the animation you prepared. Right after you add the **Model** object to the scene, write:
+Next, let's load the animation you prepared. Right after the line where you add the **Model** object to the scene, write:
 ```
 // replace the ??? with the name of your animation file without the dae extension:
 model.add(animation: "test", 
