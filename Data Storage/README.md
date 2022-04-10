@@ -18,7 +18,7 @@ var playerDataObject: PlayerData = PlayerData()
 ```
 // read and overwrite the instance when the game launches:
 if let data = DataManager.read(key: "playerDataObject", cloud: true) as? PlayerData {
-    // data read successfully, so we override the current data:
+    // the data was read successfully, so we override the current data:
     playerDataObject = data
 }else{
     // the data does not exist, so this is a new player.
