@@ -94,3 +94,4 @@ model.stopAllAnimations(except: ["test"])
 model.destroy()
 ```
 - Given an **Animation** object, you can access its **state**, which has four possible cases: **.off**, **.turningOn**, **.on**, and **.turningOff**. The **.turningOn** and **.turningOff** states indicate that the animation is currently fading in or out. You can also access its duration, speed, blend factor, etc. You are not recommended to overwrite the values of these variables.
+- If your rigged model has more than 60 bones or has a maximum bone influence greater than 4, the model will be rigged on the CPU rather than the GPU, which makes your game less efficient. You can quickly check and edit the number of bones and the max influence of the skins in modeling software.
