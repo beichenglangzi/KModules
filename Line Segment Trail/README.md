@@ -4,7 +4,7 @@ You will find this module helpful if you want to add a trail effect following a 
 
 [![Demo](https://github.com/KelinLyu/KModules/blob/main/GitHub%20Images/Trail%20Demo.gif)](#)
 
-First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target **SCNNode**. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a **SCNMaterial** object ahead of time. For example, you can write the following code to create a blank material:
+First, before creating the trail effect, you need to add two child nodes named "trailTip" and "trailEnd" to the target **SCNNode**. You can either do that programmatically or take advantage of Xcode's scene editor. Also, you need to prepare a **SCNMaterial** object ahead of time. For example, you can use the following code to create a blank material:
 ```
 let trailMaterial: SCNMaterial = SCNMaterial()
 trailMaterial.lightingModel = .constant
