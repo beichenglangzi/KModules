@@ -1,4 +1,4 @@
-// Developed by Kelin.Lyu.
+// Developed by Kelin Lyu.
 import SpriteKit
 import SceneKit
 extension SCNVector3 {

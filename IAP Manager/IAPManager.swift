@@ -1,4 +1,4 @@
-// Developed by Kelin.Lyu.
+// Developed by Kelin Lyu.
 import StoreKit
 let IAPDebugAlwaysSucceed: Bool = false
 let IAPDebugAlwaysFail: Bool = false
