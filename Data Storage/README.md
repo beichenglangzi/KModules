@@ -4,10 +4,10 @@ Suppose you want to store the player's name, best score, and other information i
 1. Write a class that inherits the **DataObject** class with all the data variables you need:
 ```
 class PlayerData: DataObject {   
-    @objc var name: String = ""
+    @objc var name: String = "" // must have the @objc keyword!
     @objc var bestScore: Int = 0
     @objc var tutorialPlayed: Bool = false
-    // other variables...
+    // other variables ...
 }
 ```
 2. Create an instance of your class:
@@ -53,7 +53,7 @@ class PlayerData: DataObject {
     var temp2: String = 0
 }
 ```
-- You can store most the basic Swift data types directly, such as **Int**, **Bool**, **String**, **Float**, and even arrays like **[Int]**, **[[String]]**, etc. If you want to store objects of another classc, for example, you want to save a world map in a game like Minecraft, you need to let the map class and other classes inherit the **DataObject** class as well. For instance:
+- You can store most of the basic Swift datatypes directly, such as **Int**, **Bool**, **String**, **Float**, and even arrays like **[Int]**, **[[String]]**, etc. If you want to store objects of another classc, for example, you want to save a world map in a game like Minecraft, you need to let the map class and other classes inherit the **DataObject** class as well. For instance:
 ```
 class MapBlockData: DataObject {
     @objc var type: Int = 0
